@@ -1,5 +1,6 @@
 import FeaturedProductsListing from './FeaturedProductsListing';
 import React, {useState, useEffect} from 'react';
+import { NavLink } from 'react-router-dom';
 
 function FeaturedProductsContainer() {
   // const [featuredProducts, setFeaturedProducts] = useState([]);
@@ -25,6 +26,15 @@ function FeaturedProductsContainer() {
       {/* if (products.featured === true) {
         <FeaturedProductsContainer products={featuredProducts}/>
       } else { null } */}
+      <NavLink
+        to={"/shop"}
+        // className="card-button-secondary"
+        // activeStyle={{
+        //   color: "lightseagreen",
+        // }}
+      >
+        <button className="card-button-shop-all"> Shop All </button>
+      </NavLink>
     </div>
   );
 }
