@@ -16,6 +16,7 @@ const linkStylesLeft = {
   background: "white",
   textDecoration: "none",
   color: "black",
+  fontSize: "18px",
 };
 
 const linkStylesCenter = {
@@ -42,7 +43,8 @@ const linkStylesRight = {
   background: "white",
   textDecoration: "none",
   color: "black",
-  activeStyle: {color: "lightseagreen"}
+  activeStyle: {color: "lightseagreen"},
+  fontSize: "18px",
 };
 
 function Header() {
