@@ -6,15 +6,15 @@ import FooterContact from './FooterContact';
 
 function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer__container">
-        <div className="footer__container__left">
+    <footer className="">
+      <div className="">
+        <div className="">
           <Location />
         </div>
-        <div className="footer__container__center">
+        <div className="">
         <Hours />
         </div>
-        <div className="footer__container__right">
+        <div className="">
           <FooterContact />
         </div>
       </div>

@@ -20,7 +20,7 @@ function FeaturedProductsContainer() {
 
   return (
     <div className="featured-products-container">
-      <h2>Featured Products</h2>
+      <h2 className='featured-products-text'>Featured Products</h2>
       <FeaturedProductsListing products={featuredProducts}/>
       {/* if (products.featured === true) {
         <FeaturedProductsContainer products={featuredProducts}/>

@@ -1,6 +1,8 @@
 function Welcome() {
     return (
-    <h1> Emotional Support Coffee </h1>
+    <div className="welcome">
+    <h1 className="welcome-text"> What can we get for you? </h1>
+    </div>
     );
 }
 

@@ -6,6 +6,7 @@ import Cart from './Cart';
 import Landing from './Landing';
 import { NavLink } from "react-router-dom";
 
+
 const linkStylesLeft = {
   display: "inline-block",
   float: "left",
@@ -20,15 +21,16 @@ const linkStylesLeft = {
 const linkStylesCenter = {
   display: "inline-block",
   align: "center",
-  width: "50px",
+  width: "450px",
   padding: "12px",
   // margin: "0 6px 6px",
   background: "white",
   textDecoration: "none",
   color: "lightseagreen",
   fontWeight: "bold",
-  fontSize: "20px",
-  FontFace: "Playfair Display, serif",
+  fontSize: "25px",
+  FontFace: "Baskerville Old Face",
+
 };
 
 const linkStylesRight = {
