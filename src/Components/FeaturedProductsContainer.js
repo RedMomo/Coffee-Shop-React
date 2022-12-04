@@ -1,13 +1,30 @@
 import FeaturedProductsListing from './FeaturedProductsListing';
-import AllProductsContainer from './AllProductsContainer';
+import React, {useState, useEffect} from 'react';
 
+function FeaturedProductsContainer() {
+  // const [featuredProducts, setFeaturedProducts] = useState([]);
+  const [products, setProducts] = useState([]);
 
+  useEffect(() => {
+  fetch ("http://localhost:3000/products")
+  .then((res) => res.json())
+  .then((products) => {
+    console.log(products, "fetching coffees!");
+    setProducts(products);
+  })
+}, []);
 
-function FeaturedProductsContainer(props) {
+  const featuredProducts = products.filter((product) => {
+    return product.featured === true;
+  });
+
   return (
     <div className="featured-products-container">
-      <FeaturedProductsListing />
-      <AllProductsContainer />
+      <h2>Featured Products</h2>
+      <FeaturedProductsListing products={featuredProducts}/>
+      {/* if (products.featured === true) {
+        <FeaturedProductsContainer products={featuredProducts}/>
+      } else { null } */}
     </div>
   );
 }

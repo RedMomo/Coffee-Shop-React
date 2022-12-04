@@ -2,8 +2,13 @@
 
 
 
-function Cart() {}
-
+function Cart() {
+    return (
+        <div className="header-right" >
+          <p> Cart </p>
+          </div>
+      )
+}
 
 
 

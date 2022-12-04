@@ -1,7 +1,8 @@
-
-
-
-function Welcome(props) {}
+function Welcome() {
+    return (
+    <h1> Emotional Support Coffee </h1>
+    );
+}
 
 
 
