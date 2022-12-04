@@ -83,6 +83,7 @@ function Header() {
         to="/"
         exact
         style={linkStylesCenter}
+        className="header-h1"
         activeStyle={{
           color: "lightseagreen",
         }}

@@ -3,16 +3,6 @@ import { NavLink } from "react-router-dom";
 
 
 function FeaturedProductCard({products}) {
-    // const linkStyles = {
-    //   display: "inline-block",
-    //   width: "50px",
-    //   padding: "12px",
-    //   margin: "0 6px 6px",
-    //   background: "white",
-    //   textDecoration: "none",
-    //   color: "black",
-    // };
-
     const handleAddToCart = () => {
       console.log("add to cart")
     };
@@ -30,17 +20,16 @@ function FeaturedProductCard({products}) {
       ) : (
         <button> Out of Stock </button>
       )} */}
-      <button onClick={handleAddToCart} className=""> Add to Cart </button>
+      <button onClick={handleAddToCart} className="card-button-primary"> Add to Cart </button>
       
       <NavLink
         to={`/products/${products.id}`}
-        // exact
-        // style={linkStyles}
-        activeStyle={{
-          color: "lightseagreen",
-        }}
+        // className="card-button-secondary"
+        // activeStyle={{
+        //   color: "lightseagreen",
+        // }}
       >
-        <button className=""> View Details </button>
+        <button className="card-button-secondary"> View Details </button>
       </NavLink>
     </li>
   );
