@@ -20,15 +20,16 @@ import React from "react";
 function Login() {
   return (
     <div>
-      <h1>Login</h1>
-      <form>
-        <div>
+      <h2 className='login-header'>Login</h2>
+      <form className='form'>
+        <div className='input'>
           <input type="text" name="username" placeholder="Username" />
         </div>
-        <div>
+        <div className='input'>
           <input type="password" name="password" placeholder="Password" />
         </div>
-        <input type="submit" value="Submit" />
+        <button className='card-button-primary'>Login</button>
+        {/* <input type="submit" value="Submit" /> */}
       </form>
     </div>
   );

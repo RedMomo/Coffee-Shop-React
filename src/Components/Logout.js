@@ -6,7 +6,7 @@ import UserPage from './UserPage.js';
 
 function Logout() {
   return (
-    <div className="header-right" >
+    <div className="logout" >
       <p> Logout </p>
       {/* <div className="logout-button"></div> */}
     </div>
