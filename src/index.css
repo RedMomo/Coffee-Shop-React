@@ -11,8 +11,8 @@
 
 .welcome {
   margin: 2em, 0, 2em, 0;
-  /* background-image: url("https://www.inspirefusion.com/wp-content/uploads/7-Tips-for-Cozy-Coffee-Shop-Design2-e1570082483443.jpg"); */
-  background-image: url("https://gallery.yopriceville.com/var/albums/Backgrounds/Coffee_Beans_Background-727176932.jpg?m=1459816379");
+  background-image: url("https://www.inspirefusion.com/wp-content/uploads/7-Tips-for-Cozy-Coffee-Shop-Design2-e1570082483443.jpg");
+  /* background-image: url("https://gallery.yopriceville.com/var/albums/Backgrounds/Coffee_Beans_Background-727176932.jpg?m=1459816379"); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -25,14 +25,25 @@
   font-size: 3em;
   font-weight: bold;
   color: white;
-  text-shadow: black 2px 2px 2px;
+  text-shadow: black 2.5px 2px 2px;
   -webkit-text-stroke-color: black;
   -webkit-text-stroke-width: 1px;
   left: 0;
   position:absolute;
   text-align:center;
   top: 15rem;
-  width: 100%;
+  width: 100%; 
+}
+
+.all-products-container {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* background-color: whitesmoke; */
 }
 
 .featured-products-container {
@@ -112,11 +123,6 @@ button.primary {
 }
 
 .about {
-  text-align: left;
-  /* background-image: url("https://gallery.yopriceville.com/var/albums/Backgrounds/Coffee_Beans_Background-727176932.jpg?m=1459816379");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center; */
   color: black;
 }
 
@@ -175,7 +181,8 @@ main {
 
 .searchbar {
   padding: 2rem;
-  /* display: flex; */
+  margin: 0 auto;
+  display: flex;
   flex-direction: column;
   width: 500px;
   /* align-content: left; */
@@ -183,11 +190,10 @@ main {
 
 label {
   font-weight: bold;
-  /* font-size: 1rem; */
+  font-size: 1.5rem;
   font-family: Playfair Display, serif;
   display: block;
   position: absolute;
-  align-content: left;
   /* color: lightseagreen; */
 }
 /* for searchbar  */
@@ -196,20 +202,29 @@ input {
   padding: 0rem;
   border: none;
   font-family: inherit;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   border-bottom: 1.5px solid gray;
   transition: all 0.2s;
   width: 100%;
-  /* position: absolute;
-  /* align-content: left; */
 }
 /* search input */
 
 input:focus {
   outline: none;
-  /* border-bottom: 2px solid lightseagreen; */
+  border-bottom: 2px solid lightseagreen;
 }
 /* searchbar bottom */
+
+/* .product-banner {
+  align-self: left;
+  background-color: lightseagreen;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  font-size: medium;
+  font-family: Playfair Display, serif;
+} */
 
 .cards {
   list-style: none;
