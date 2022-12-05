@@ -4,8 +4,8 @@ import About from './About';
 // import Contact from './Contact';
 import Cart from './Cart';
 import Landing from './Landing';
-import { NavLink } from "react-router-dom";
-
+import { NavLink, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const linkStylesLeft = {
   display: "inline-block",
@@ -48,8 +48,25 @@ const linkStylesRight = {
 };
 
 function Header() {
+  const navigate = useNavigate()
+  const [user, setUser] = useState({});
+
+  const jwt_token = localStorage.getItem("jwt");
+  // console.log(jwt_token);
+    useEffect(() => {
+      fetch('/me',{
+        method: 'GET',
+        headers: {
+          Authorization: "Bearer " + jwt_token,
+          'Content-Type': 'application/json'
+        },
+      })
+        .then(res => res.json())
+        .then(user => setUser(user))
+    }, [ jwt_token])
+    
   return (
-    <div>
+    <div className='header'>
        <NavLink
         to="/shop"
         style={linkStylesLeft}
@@ -91,6 +108,18 @@ function Header() {
         Emotional Support Coffee
       </NavLink>
 
+    {user.admin ? 
+
+      <NavLink
+      to="/logout"
+      style={linkStylesRight}
+      activestyle={{
+        color: "lightseagreen",
+      }}
+    >
+      Logout
+    </NavLink>
+      :
       <NavLink
         to="/login"
         style={linkStylesRight}
@@ -100,16 +129,7 @@ function Header() {
       >
         Login
       </NavLink>
-
-      {/* <NavLink
-        to="/logout"
-        style={linkStylesRight}
-        activestyle={{
-          color: "lightseagreen",
-        }}
-      >
-        Logout
-      </NavLink> */}
+}
 
       <NavLink
         to="/cart"
@@ -120,6 +140,7 @@ function Header() {
       >
         Cart
       </NavLink>
+      
 
     </div>
   );

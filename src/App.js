@@ -23,7 +23,7 @@ function App(products) {
   const [user, setUser] = useState({});
   // const [products, setProducts] = useState([])
   const jwt_token = localStorage.getItem("jwt");
-  // console.log(jwt_token);
+
     useEffect(() => {
       fetch('/me',{
         method: 'GET',
@@ -43,19 +43,31 @@ function App(products) {
     
       <Header />
         <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/Landing" element={<Landing />} />
-          <Route exact path="/shop" element={<AllProductsContainer />} />
-          <Route exact path="/about" element={<About />} />
-          <Route exact path={`/products/${products.id}`} element={<ProductDetails />} />
-          {/* <Route exact path="/contact" element={<Contact />} /> */}
-          <Route exact path="/signup" element={<Signup />} />
-          <Route exact path="/login" element={<Login />} />
-          {/* <Route exact path="/logout" element={<Logout />} /> */}
-          <Route exact path="/logout" element={<Landing />} />
-          <Route exact path="/cart" element={<Cart />} />
-          <Route exact path="/adminpage" element={<AdminPage />} />
-          {user ? <Route path="/profile" element={<Profile user={user} />} /> : ('/login')}
+         {/* {user ? <Route exact path="/adminpage" element={<AdminPage />} /> &&
+          <Route exact path="/userpage" element={<UserPage />} /> &&
+          <Route exact path="/logout" element={<Logout />} /> 
+            : 
+          <Route path="/" element={<Landing />} /> &&
+          <Route path="/Landing" element={<Landing />} /> &&
+          <Route exact path="/shop" element={<AllProductsContainer />} /> &&
+          <Route exact path="/about" element={<About />} /> &&
+          <Route exact path={`/products/${products.id}`} element={<ProductDetails />} /> &&
+          <Route exact path="/signup" element={<Signup />} /> &&
+          <Route exact path="/login" element={<Login />} /> &&
+          <Route exact path="/cart" element={<Cart />} /> } */}
+
+          <Route exact path="/adminpage" element={<AdminPage />} /> 
+          <Route exact path="/userpage" element={<UserPage />} /> 
+          <Route exact path="/logout" element={<Logout setUser={setUser}/>} />  
+          <Route path="/" element={<Landing />} /> 
+          <Route path="/Landing" element={<Landing />} /> 
+          <Route exact path="/shop" element={<AllProductsContainer />} /> 
+          <Route exact path="/about" element={<About />} /> 
+          <Route exact path={`/products/${products.id}`} element={<ProductDetails />} /> 
+          <Route exact path="/signup" element={<Signup setUser={setUser} />} /> 
+          <Route exact path="/login" element={<Login setUser={setUser}/>} /> 
+          <Route exact path="/cart" element={<Cart />} /> 
+          
         </Routes>  
       <Footer />     
   </div>

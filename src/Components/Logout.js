@@ -7,18 +7,21 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 export const Logout = ({setUser}) => {
     const navigate = useNavigate();
+    
     const handleClick = () => {
-      // console.log("logout");
         localStorage.removeItem('jwt')
-        // navigate('/logout')
+        navigate('/')
+        console.log("logout");
+
     }
     return (
-      <NavLink
-        to="/"
-      >
-        <button className='logout' onClick={handleClick}>Logout</button>
-      </NavLink>
+      // <NavLink
+      //   to="/Logout"
+      // >
+      //   <button className='card-button-primary' onClick={handleClick}>Logout</button>
+      // </NavLink>
+        <button className='card-button-primary' onClick={handleClick}>Logout</button>
     )
 }
 
-export default Logout; 
+export default Logout;

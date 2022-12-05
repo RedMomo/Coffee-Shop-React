@@ -1,6 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-function ProductDetails({products}) {
+function ProductDetails() {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3000/products")
+    .then((res) => res.json())
+    .then((products) => {
+      console.log(products, "fetching coffees!");
+      setProducts(products);
+    })
+  }, []);
 
   const handleAddToCart = () => {
     console.log("add to cart")
@@ -8,6 +17,7 @@ function ProductDetails({products}) {
 
 
   return (
+    products.map((products) => {
     <div className="">
     <h1> Product Stuff </h1>
     <li className="">
@@ -25,8 +35,8 @@ function ProductDetails({products}) {
       <p>{products.title}</p>
       <p>{products.description}</p>
     </li>
-    </div>
-  );
+    </div>})
+    );
 }
 
 export default ProductDetails;

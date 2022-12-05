@@ -27,7 +27,7 @@ const handleSubmit = (e) => {
       .then((data) => {
         console.log(data);
         localStorage.setItem("jwt", data.jwt);
-        navigate('/profile')
+        navigate('/adminpage')
       })
 
     }
