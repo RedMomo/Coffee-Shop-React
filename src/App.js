@@ -13,9 +13,31 @@ import UserPage from './Components/UserPage';
 // import Contact from './Components/Contact';
 import Cart from './Components/Cart';
 import ProductDetails from './Components/ProductDetails';
+import Profile from './Components/Profile';
 import { Routes, Route } from "react-router-dom";
+import {useState, useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
 
 function App(products) {
+  // const navigate = useNavigate()
+  const [user, setUser] = useState({});
+  // const [products, setProducts] = useState([])
+  const jwt_token = localStorage.getItem("jwt");
+  // console.log(jwt_token);
+    useEffect(() => {
+      fetch('/me',{
+        method: 'GET',
+        headers: {
+          Authorization: "Bearer " + jwt_token,
+          'Content-Type': 'application/json'
+        },
+      })
+        .then(res => res.json())
+        .then(user => setUser(user))
+    }, [ jwt_token])
+
+
+
   return (
     <div className="">
     
@@ -33,6 +55,7 @@ function App(products) {
           <Route exact path="/logout" element={<Landing />} />
           <Route exact path="/cart" element={<Cart />} />
           <Route exact path="/adminpage" element={<AdminPage />} />
+          {user ? <Route path="/profile" element={<Profile user={user} />} /> : ('/login')}
         </Routes>  
       <Footer />     
   </div>
