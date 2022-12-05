@@ -16,6 +16,4 @@ function Searchbar({search, setSearch}) {
   );
 }
 
-// plantsy searchbar code snippet
-
 export default Searchbar;

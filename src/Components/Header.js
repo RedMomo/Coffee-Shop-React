@@ -52,9 +52,8 @@ function Header() {
     <div>
        <NavLink
         to="/shop"
-        exact
         style={linkStylesLeft}
-        activeStyle={{
+        activestyle={{
           color: "lightseagreen",
         }}
       >
@@ -63,9 +62,8 @@ function Header() {
 
       <NavLink
         to="/about"
-        exact
         style={linkStylesLeft}
-        activeStyle={{
+        activestyle={{
           color: "lightseagreen",
         }}
       >
@@ -74,7 +72,6 @@ function Header() {
 
       {/* <NavLink
         to="/contact"
-        exact
         style={linkStylesLeft}
         activeStyle={{
           color: "lightseagreen",
@@ -85,10 +82,9 @@ function Header() {
 
       <NavLink
         to="/"
-        exact
         style={linkStylesCenter}
         className="header-h1"
-        activeStyle={{
+        activestyle={{
           color: "lightseagreen",
         }}
       >
@@ -97,31 +93,28 @@ function Header() {
 
       <NavLink
         to="/login"
-        exact
         style={linkStylesRight}
-        activeStyle={{
+        activestyle={{
           color: "lightseagreen",
         }}
       >
         Login
       </NavLink>
 
-      <NavLink
+      {/* <NavLink
         to="/logout"
-        exact
         style={linkStylesRight}
-        activeStyle={{
+        activestyle={{
           color: "lightseagreen",
         }}
       >
         Logout
-      </NavLink>
+      </NavLink> */}
 
       <NavLink
         to="/cart"
-        exact
         style={linkStylesRight}
-        activeStyle={{
+        activestyle={{
           color: "lightseagreen",
         }}
       >

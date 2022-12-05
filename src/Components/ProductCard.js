@@ -25,7 +25,7 @@ function ProductCard({products}) {
       <NavLink
         to={`/products/${products.id}`}
         // className="card-button-secondary"
-        // activeStyle={{
+        // activestyle={{
         //   color: "lightseagreen",
         // }}
       >
