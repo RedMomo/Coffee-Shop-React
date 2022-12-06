@@ -28,6 +28,7 @@ const handleSubmit = (e) => {
         console.log(data);
         localStorage.setItem("jwt", data.token);
         setUser(data.user);
+        navigate("/adminpage");
       })
 
     }

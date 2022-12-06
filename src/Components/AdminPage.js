@@ -25,11 +25,11 @@ export const AdminPage = ({user, newProduct}) => {
         < CreateForm />
         < EditForm />
         {/* < DeleteForm /> */}
-        <NavLink
+        {/* <NavLink
           to="/Landing"
         >
           <button className='card-button-shop-all'>Logout</button>
-        </NavLink>
+        </NavLink> */}
       </div>
       )
   }

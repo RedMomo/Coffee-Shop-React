@@ -35,7 +35,7 @@ const linkStylesCenter = {
 };
 
 const linkStylesRight = {
-  display: "inline-block",
+  display: "flex",
   float: "right",
   width: "50px",
   padding: "12px",
@@ -107,7 +107,7 @@ function Header({user}) {
         color: "lightseagreen",
       }}
     >
-      My Account
+      Account
     </NavLink>
 
     <button
