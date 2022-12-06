@@ -8,11 +8,13 @@ import EditForm from './EditForm';
 import AdminCardsContainer from './AdminCardsContainer';
 // import DeleteForm from './DeleteForm';
 
-export const AdminPage = ({user, newProduct}) => {
-  const [products, setProducts] = useState([]);
-  const newProducts = (product) => {
-    setProducts([...products, product]);
+export const AdminPage = ({user, product, updateProducts}) => {
+  // const [products, setProducts] = useState([]);
+  const newProducts = (products) => {
+    newProducts([...products, product]);
   };
+
+  const [products, setProducts] = useState([]);
 
   // const deleteProduct = (products)
   
@@ -27,9 +29,9 @@ export const AdminPage = ({user, newProduct}) => {
       return (
         <div>
         <h1>Admin Dashboard</h1>
-        < CreateForm />
-        < EditForm />
-        <AdminCardsContainer products={newProducts} />
+        < CreateForm products={products} setProducts={setProducts} />
+        < EditForm updateProducts={updateProducts}/>
+        <AdminCardsContainer products={products} setProducts={setProducts} />
       </div>
       )
   }

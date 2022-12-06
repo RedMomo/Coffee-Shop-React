@@ -5,7 +5,7 @@ function Cart({user, count, products}) {
     const jwt_token = localStorage.getItem("jwt");
     const [cartData, setCartData] = useState([])
     useEffect(() => {
-        fetch('/carts',{
+        fetch("http://localhost:3000/carts", {
             method: 'GET',
             headers: {
                 Authorization: "Bearer " + jwt_token,
@@ -15,7 +15,7 @@ function Cart({user, count, products}) {
             .then((res) => res.json())
             .then((res) => {
                 setCartData(res)
-                console.log(res)
+                console.log("fetching carts!")
             })
             console.log(cartData)
     }, 

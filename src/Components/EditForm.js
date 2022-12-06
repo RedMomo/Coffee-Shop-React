@@ -1,5 +1,4 @@
 import React from'react';
-import ReactDOM from'react-dom';
 import { useState, useEffect } from 'react';
 // import { useParams } from 'react-router-dom';
 // import DeleteForm from './DeleteForm';
@@ -73,12 +72,6 @@ function EditForm({updateProducts}) {
           .then((data) => updateProducts(updateProducts));
       };
 
-      function handleDeleteClick(onRemoveListing) {
-        fetch(`http://localhost:3000/products/${id}`, {
-          method: "DELETE",
-        });
-        // onRemoveListing(id);
-      }
 
     return (
         <div>
@@ -94,7 +87,6 @@ function EditForm({updateProducts}) {
             <input onChange={handleTastingNotesChange} type="text" name="tastingNotes" placeholder="Tasting Notes" value={tasting_notes} />
             <input onChange={handleImageChange} type="text" name="imageUrl" placeholder="Image URL" value={image_url} />
             <button onSubmit={handleSubmit} type="submit" className="">Edit Product</button>
-            <button id={id} onSubmit={handleDeleteClick} type="submit" className="">Delete Product</button>
 
           </form>
         </div>

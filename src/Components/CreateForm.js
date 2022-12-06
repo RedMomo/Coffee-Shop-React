@@ -1,8 +1,7 @@
 import React from'react';
-import ReactDOM from'react-dom';
 import { useState } from 'react';
 
-function CreateForm(newProduct) {
+function CreateForm({products, setProducts}) {
     const token = localStorage.getItem('jwt');
     const [title, setTitle] = useState("");
     const [featured, setFeatured] = useState(""); // boolean
@@ -67,9 +66,9 @@ function CreateForm(newProduct) {
           }),
         })
           .then((res) => res.json())
-          .then((products) => {
+          .then((product) => {
             console.log(products, "new products!");
-            newProduct(products);
+            setProducts([...products, product]);
           });
     
         setTitle("");
