@@ -19,38 +19,37 @@ function EditForm({updateProducts, onRemoveListing}) {
     const token = localStorage.getItem('jwt');
     // const { id } = useParams();
 
-    useEffect(() => {
-        fetch("http://localhost:3000/products")
-        .then((res) => res.json())
-        .then((products) => {
-          console.log(products, "fetching coffees!");
-          setProducts(products);
-        })
-      }, []);
+    // useEffect(() => {
+    //     fetch("http://localhost:3000/products")
+    //     .then((res) => res.json())
+    //     .then((products) => {
+    //       console.log(products, "fetching coffees!");
+    //       setProducts(products);
+    //     })
+    //   }, []);
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
         // if (user.user_type === 'admin') {}
 
-
         fetch(`http://localhost:3000/products/${id}`, {
           method: "PATCH",
           headers: {
             "content-type": "application/json",
             Authorization: "Bearer " + token,
-
           },
           body: JSON.stringify({
+            id: id,
             title: title,
-            featured: featured,
+            // featured: featured,
             roast: roast,
-            single_origin: single_origin,
+            // single_origin: single_origin,
             description: description,
             price: price,
             tasting_notes: tasting_notes,
             image_url: image_url,
-            stock: stock,
+            // stock: stock,
           }),
         })
           .then((res) => res.json())
@@ -69,10 +68,10 @@ function EditForm({updateProducts, onRemoveListing}) {
             <form onSubmit={handleSubmit}>
              <input type="text" name="ID" placeholder="ID" value={products.id} />
              <input onChange={handleSubmit} type="text" name="title" placeholder="Title" value={title} />
-            <input onChange={handleSubmit} type="text" name="featured" placeholder="Featured" value={featured} /> {/* boolean */}
-            <input onChange={handleSubmit} type="text" name="stock" placeholder="Stock" value={stock} /> {/* boolean */}
+            {/* <input onChange={handleSubmit} type="text" name="featured" placeholder="Featured" value={featured} /> boolean */}
+            {/* <input onChange={handleSubmit} type="text" name="stock" placeholder="Stock" value={stock} /> boolean */}
             <input onChange={handleSubmit} type="text" name="roast" placeholder="Roast" value={roast} />
-            <input onChange={handleSubmit} type="text" name="singleOrigin" placeholder="Single Origin" value={single_origin} /> {/* boolean */}
+            {/* <input onChange={handleSubmit} type="text" name="singleOrigin" placeholder="Single Origin" value={single_origin} /> boolean */}
             <input onChange={handleSubmit} type="text" name="description" placeholder="Description" value={description} />
             <input onChange={handleSubmit} type="text" name="price" placeholder="Price" value={price} />
             <input onChange={handleSubmit} type="text" name="tastingNotes" placeholder="Tasting Notes" value={tasting_notes} />

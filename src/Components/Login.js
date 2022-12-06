@@ -1,6 +1,6 @@
 import AdminPage from './AdminPage.js';
 import UserPage from './UserPage.js';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 function Login({setUser}) {
@@ -26,8 +26,8 @@ const handleSubmit = (e) => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        localStorage.setItem("jwt", data.jwt);
-        navigate('/adminpage')
+        localStorage.setItem("jwt", data.token);
+        setUser(data.user);
       })
 
     }
@@ -47,7 +47,7 @@ const handleSubmit = (e) => {
       </form>
     </div>
   );
-}
+  }
 
 export default Login;
 

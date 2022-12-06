@@ -47,23 +47,11 @@ const linkStylesRight = {
   fontSize: "18px",
 };
 
-function Header() {
+function Header({user}) {
   const navigate = useNavigate()
-  const [user, setUser] = useState({});
 
   const jwt_token = localStorage.getItem("jwt");
   // console.log(jwt_token);
-    useEffect(() => {
-      fetch('/me',{
-        method: 'GET',
-        headers: {
-          Authorization: "Bearer " + jwt_token,
-          'Content-Type': 'application/json'
-        },
-      })
-        .then(res => res.json())
-        .then(user => setUser(user))
-    }, [ jwt_token])
     
   return (
     <div className='header'>
@@ -109,8 +97,10 @@ function Header() {
       </NavLink>
 
     {/* {user.admin === true ?  */}
-
-      <NavLink
+    {jwt_token ? 
+      (
+      <>
+        <NavLink
       to="/adminpage"
       style={linkStylesRight}
       activestyle={{
@@ -119,8 +109,23 @@ function Header() {
     >
       My Account
     </NavLink>
-      {/* : */}
-      <NavLink
+
+    <button
+      onClick={() => {
+        localStorage.clear();
+        navigate("/login")
+      }}
+      style={linkStylesRight}
+      activestyle={{
+        color: "lightseagreen",
+      }}
+    >
+      Logout
+    </button>
+      </>
+      )
+      :
+      (<NavLink
         to="/login"
         style={linkStylesRight}
         activestyle={{
@@ -128,8 +133,8 @@ function Header() {
         }}
       >
         Login
-      </NavLink>
-{/* } */}
+      </NavLink>)
+}
 
       <NavLink
         to="/cart"
