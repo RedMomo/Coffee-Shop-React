@@ -108,16 +108,16 @@ function Header() {
         Emotional Support Coffee
       </NavLink>
 
-    {user.admin ? 
+    {user.admin === true ? 
 
       <NavLink
-      to="/logout"
+      to="/adminpage"
       style={linkStylesRight}
       activestyle={{
         color: "lightseagreen",
       }}
     >
-      Logout
+      My Account
     </NavLink>
       :
       <NavLink

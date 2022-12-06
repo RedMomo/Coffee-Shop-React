@@ -37,7 +37,6 @@ function App(products) {
     }, [ jwt_token])
 
 
-
   return (
     <div className="">
     

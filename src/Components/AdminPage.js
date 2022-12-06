@@ -2,6 +2,8 @@ import AdminDashboard from './AdminDashboard';
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Logout from './Logout';
+import AdminCRUDForm from './AdminCRUDForm';
+import CreateForm from './CreateForm';
 
 
 // function AdminPage() {
@@ -19,7 +21,7 @@ import Logout from './Logout';
 // }
 
 
-export const AdminPage = ({user}) => {
+export const AdminPage = ({user, newProduct}) => {
   const navigate = useNavigate()
   console.log(user)
       let token = localStorage.getItem('jwt')
@@ -32,7 +34,9 @@ export const AdminPage = ({user}) => {
       return (
         <div>
         <h1>Admin Dashboard</h1>
-        <AdminDashboard />
+        < CreateForm />
+        {/* <AdminDashboard /> */}
+        <AdminCRUDForm newProduct={newProduct}/>
         <NavLink
           to="/Landing"
         >
