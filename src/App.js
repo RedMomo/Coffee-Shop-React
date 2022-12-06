@@ -55,6 +55,9 @@ function App(products) {
           <Route exact path="/login" element={<Login />} /> &&
           <Route exact path="/cart" element={<Cart />} /> } */}
 
+          {/* {user.admin ? <Navigate to="/adminpage" /> : <Navigate to="/landing" />} */}
+
+
           <Route exact path="/adminpage" element={<AdminPage />} /> 
           <Route exact path="/userpage" element={<UserPage />} /> 
           <Route exact path="/logout" element={<Logout setUser={setUser}/>} />  

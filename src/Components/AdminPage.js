@@ -7,22 +7,6 @@ import CreateForm from './CreateForm';
 import EditForm from './EditForm';
 // import DeleteForm from './DeleteForm';
 
-
-// function AdminPage() {
-//   return (
-//     <div>
-//       <h1>Admin Dashboard</h1>
-//       <AdminDashboard />
-//       <NavLink
-//         to="/Landing"
-//       >
-//         <button className='card-button-shop-all'>Logout</button>
-//       </NavLink>
-//     </div>
-//   );
-// }
-
-
 export const AdminPage = ({user, newProduct}) => {
   const navigate = useNavigate()
   console.log(user)
