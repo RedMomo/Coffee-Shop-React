@@ -12,6 +12,7 @@ function CreateForm(newProduct) {
     const [price, setPrice] = useState("");
     const [tasting_notes, setTasting_Notes] = useState("");
     const [image_url, setImage_Url] = useState("");
+    const [stock, setStock] = useState("");
 
     const handleTitleChange = (e) => {
         setTitle(e.target.value);
@@ -37,6 +38,9 @@ function CreateForm(newProduct) {
     const handleImageChange = (e) => {
         setImage_Url(e.target.value);
     };
+    const handleStockChange = (e) => {
+        setStock(e.target.value);
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -59,6 +63,7 @@ function CreateForm(newProduct) {
             price: price,
             tasting_notes: tasting_notes,
             image_url: image_url,
+            stock: stock,
           }),
         })
           .then((res) => res.json())
@@ -75,14 +80,16 @@ function CreateForm(newProduct) {
         setPrice("");
         setTasting_Notes("");
         setImage_Url("");
+        setStock(""); // boolean
       };
    
      return (
-        <div className=""> 
+        <div className='form'> 
           <h2>New Product</h2>
           <form onSubmit={handleSubmit}>
              <input onChange={handleTitleChange} type="text" name="title" placeholder="Title" value={title} />
             <input onChange={handleFeaturedChange} type="text" name="featured" placeholder="Featured" value={featured} /> {/* boolean */}
+            <input onChange={handleStockChange} type="text" name="stock" placeholder="Stock" value={stock} /> {/* boolean */}
             <input onChange={handleRoastChange} type="text" name="roast" placeholder="Roast" value={roast} />
             <input onChange={handleOriginChange} type="text" name="singleOrigin" placeholder="Single Origin" value={single_origin} /> {/* boolean */}
             <input onChange={handleDescriptionChange} type="text" name="description" placeholder="Description" value={description} />

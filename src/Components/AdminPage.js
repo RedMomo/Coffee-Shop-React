@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import Logout from './Logout';
 import AdminCRUDForm from './AdminCRUDForm';
 import CreateForm from './CreateForm';
+import EditForm from './EditForm';
+// import DeleteForm from './DeleteForm';
 
 
 // function AdminPage() {
@@ -35,8 +37,8 @@ export const AdminPage = ({user, newProduct}) => {
         <div>
         <h1>Admin Dashboard</h1>
         < CreateForm />
-        {/* <AdminDashboard /> */}
-        <AdminCRUDForm newProduct={newProduct}/>
+        < EditForm />
+        {/* < DeleteForm /> */}
         <NavLink
           to="/Landing"
         >
