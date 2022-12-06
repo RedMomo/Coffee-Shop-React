@@ -3,10 +3,13 @@ import { NavLink } from "react-router-dom";
 
 
 function ProductCard({products}) {
-    const handleAddToCart = () => {
-      console.log("add to cart")
-    };
-
+  const handleAddToCart = () => {
+    fetch(`http://localhost:3000/products/${products.id}`, {
+      method: "PUT", 
+    });
+    console.log("add to cart");
+    console.log(products);
+  };
 
   return (
     <li className="">
@@ -23,12 +26,15 @@ function ProductCard({products}) {
         <button> Out of Stock </button>
       )} */}
       <button onClick={handleAddToCart} className="card-button-primary"> Add to Cart </button>
+      {/* <button onClick={handleDeleteClick} type="submit" className="">Delete Product</button> */}
+
       
       {/* <NavLink
         to={`/products/${products.id}`}
       >
         <button className="card-button-secondary"> View Details </button>
       </NavLink> */}
+
     </li>
   );
 }

@@ -21,6 +21,7 @@ function Cart({user, count, products}) {
     }, 
     [])
 
+
     return (
         <div className="about-us">
             <h1>Shopping Cart</h1>

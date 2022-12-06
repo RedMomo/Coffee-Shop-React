@@ -301,6 +301,11 @@ input:focus {
 
 }
 
+.red-button {
+  background-color: red;
+  color: white;
+}
+
 @media (min-width: 768px) {
   .cards {
     display: flex;
