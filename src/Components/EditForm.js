@@ -1,19 +1,38 @@
 import React from'react';
 import ReactDOM from'react-dom';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 // import DeleteForm from './DeleteForm';
 
-function EditForm({products, updateProducts, onRemoveListing}) {
+function EditForm({updateProducts, onRemoveListing}) {
+    const [id, setId] = useState("");
+    const [products, setProducts] = useState([]);
+     const [title, setTitle] = useState("");
+    const [featured, setFeatured] = useState(""); // boolean
+    const [roast, setRoast] = useState("");
+    const [single_origin, setSingle_Origin] = useState(""); // boolean
+    const [description, setDescription] = useState("");
+    const [price, setPrice] = useState("");
+    const [tasting_notes, setTasting_Notes] = useState("");
+    const [image_url, setImage_Url] = useState("");
+    const [stock, setStock] = useState("");
     const token = localStorage.getItem('jwt');
-    const { id } = useParams();
+    // const { id } = useParams();
+
+    useEffect(() => {
+        fetch("http://localhost:3000/products")
+        .then((res) => res.json())
+        .then((products) => {
+          console.log(products, "fetching coffees!");
+          setProducts(products);
+        })
+      }, []);
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
         // if (user.user_type === 'admin') {}
 
-    
 
         fetch(`http://localhost:3000/products/${id}`, {
           method: "PATCH",
@@ -48,7 +67,7 @@ function EditForm({products, updateProducts, onRemoveListing}) {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-             <input type="text" name="ID" placeholder="ID" value={id} />
+             <input type="text" name="ID" placeholder="ID" value={products.id} />
              <input onChange={handleSubmit} type="text" name="title" placeholder="Title" value={title} />
             <input onChange={handleSubmit} type="text" name="featured" placeholder="Featured" value={featured} /> {/* boolean */}
             <input onChange={handleSubmit} type="text" name="stock" placeholder="Stock" value={stock} /> {/* boolean */}

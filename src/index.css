@@ -329,7 +329,7 @@ input:focus {
   font-family: Baskerville, 'Baskerville Old Face', 'Hoefler Text', Garamond, 'Times New Roman', serif;
   display: flex;
   flex-wrap: wrap;
-  width: 450px;
+  width: 400px;
   /* padding: 1rem; */
   margin-left: 1rem;
   margin-right: 1rem;

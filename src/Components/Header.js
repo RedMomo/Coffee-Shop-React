@@ -108,7 +108,7 @@ function Header() {
         Emotional Support Coffee
       </NavLink>
 
-    {user.admin === true ? 
+    {/* {user.admin === true ?  */}
 
       <NavLink
       to="/adminpage"
@@ -119,7 +119,7 @@ function Header() {
     >
       My Account
     </NavLink>
-      :
+      {/* : */}
       <NavLink
         to="/login"
         style={linkStylesRight}
@@ -129,7 +129,7 @@ function Header() {
       >
         Login
       </NavLink>
-}
+{/* } */}
 
       <NavLink
         to="/cart"
