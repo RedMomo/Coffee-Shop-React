@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 // import { useParams } from 'react-router-dom';
 // import DeleteForm from './DeleteForm';
 
-function EditForm({setProducts}) {
+function EditForm({product, products, setProducts}) {
     const token = localStorage.getItem('jwt')
 
     const handleSubmit = (e) => {
@@ -29,7 +29,11 @@ function EditForm({setProducts}) {
             console.log(data)
 
             // Uncomment the line below once you are ready to update the singular product that you edited (Not all products)
-            setProducts([...data])
+          //  let updatedProducts = products.filter(product.id) 
+          //   setProducts([...data])
+
+
+            // setProducts([...data])
         });
       };
 
