@@ -7,28 +7,19 @@ import Searchbar from './Searchbar';
 function AllProductsContainer() {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("")
-  // const [filters, setFilters] = useState({ type: "all" });
-
-  // function handleChangeType(type) {
-  //   setFilters({ type: type });
-  // }
-  // function handleFindCoffeeClick() {
-  //   if (filters.type !== "all") {
-  //     url += `?type=${filters.type}`;
-  //   }
-  //   fetch("http://localhost:3000/products"")
-  //     .then((r) => r.json())
-  //     .then((products) => {
-  //       setProducts(products);
-  //     });
-  // }
+  const token = localStorage.getItem('jwt');
 
   const newProducts = (product) => {
     setProducts([...products, product]);
   };
 
   useEffect(() => {
-    fetch("http://localhost:3000/products")
+    fetch("http://localhost:3000/products", {
+      headers: {
+        "content-type": "application/json",
+        "Authorization": "Bearer " + token,
+    },
+  })
     .then((res) => res.json())
     .then((products) => {
       console.log(products, "fetching coffees!");

@@ -50,7 +50,7 @@ function CreateForm({products, setProducts}) {
           method: "POST",
           headers: {
             "content-type": "application/json",
-            Authorization: "Bearer " + token,
+            "Authorization": "Bearer " + token,
     
           },
           body: JSON.stringify({
@@ -83,10 +83,10 @@ function CreateForm({products, setProducts}) {
       };
    
      return (
-        <div className='form'> 
+        <div className=''> 
           <h2>New Product</h2>
-          <form onSubmit={handleSubmit}>
-             <input onChange={handleTitleChange} type="text" name="title" placeholder="Title" value={title} />
+          <form onSubmit={handleSubmit} id={'test'}>
+            <input onChange={handleTitleChange} type="text" name="title" placeholder="Title" value={title} />
             <input onChange={handleFeaturedChange} type="text" name="featured" placeholder="Featured" value={featured} /> {/* boolean */}
             <input onChange={handleStockChange} type="text" name="stock" placeholder="Stock" value={stock} /> {/* boolean */}
             <input onChange={handleRoastChange} type="text" name="roast" placeholder="Roast" value={roast} />

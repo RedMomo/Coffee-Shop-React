@@ -1,36 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import CartData from './CartData.js';
+import React from 'react';
+// import CartContainer from './CartContainer';
 
-function Cart({user, count, products}) {
-    const jwt_token = localStorage.getItem("jwt");
-    const [cartData, setCartData] = useState([])
-    useEffect(() => {
-        fetch("http://localhost:3000/carts", {
-            method: 'GET',
-            headers: {
-                Authorization: "Bearer " + jwt_token,
-                'Content-Type': 'application/json'
-            },
-        })
-            .then((res) => res.json())
-            .then((res) => {
-                setCartData(res)
-                console.log("fetching carts!")
-            })
-            console.log(cartData)
-    }, 
-    [])
+function Cart({cart, carts, setCarts}) {
 
 
     return (
         <div className="about-us">
             <h1>Shopping Cart</h1>
-
-            
             <p>The world is quiet here...</p>
-            <CartData foods={CartData[0]?.products} count={count} />
+
+            {/* < CartContainer /> */}
+            {/* < CartContainer carts={carts} setCarts={setCarts}/> */}
+
             <button type="button" className="card-button-shop-all">Checkout</button>
-            {/* above will be conditional  */}
         </div>
     );
     // include className='login-header' in the div below

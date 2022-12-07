@@ -7,6 +7,7 @@ function Login({setUser}) {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const token = localStorage.getItem('jwt');
 
 const handleSubmit = (e) => {
   e.preventDefault();
@@ -20,6 +21,7 @@ const handleSubmit = (e) => {
       method: "POST",
       headers: {
         "Content-type": "application/json",
+        "Authorization": "Bearer " + token,
       },
       body: JSON.stringify(user),
     })
@@ -27,6 +29,7 @@ const handleSubmit = (e) => {
       .then((data) => {
         console.log(data);
         localStorage.setItem("jwt", data.token);
+        console.log(user);
         setUser(data.user);
         navigate("/adminpage");
       })

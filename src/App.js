@@ -23,6 +23,7 @@ function App(products) {
   const [user, setUser] = useState({});
   // const [products, setProducts] = useState([])
   const jwt_token = localStorage.getItem("jwt")
+  const token = localStorage.getItem('jwt');
 
     useEffect(() => {
       fetch('/me',{

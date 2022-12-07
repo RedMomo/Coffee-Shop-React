@@ -3,7 +3,7 @@ import React, { useState} from "react";
 // is there a way to only fetch once on this page? Can I put mutliple fetches in one function? Can I put multiple routes in one form/function?
 
 function AdminCRUDForm() {
-    // const token = localStorage.getItem('jwt')
+    const token = localStorage.getItem('jwt')
 
 // Create Product form
 function NewProductForm({ newProduct }) {
@@ -55,7 +55,7 @@ function NewProductForm({ newProduct }) {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        // Authorization: "Bearer " + token,
+        Authorization: "Bearer " + token,
 
       },
       body: JSON.stringify({

@@ -5,9 +5,15 @@ import { NavLink } from 'react-router-dom';
 function FeaturedProductsContainer() {
   // const [featuredProducts, setFeaturedProducts] = useState([]);
   const [products, setProducts] = useState([]);
+  const token = localStorage.getItem('jwt');
 
   useEffect(() => {
-  fetch ("http://localhost:3000/products")
+  fetch ("http://localhost:3000/products", {
+    headers: {
+      "content-type": "application/json",
+      "Authorization": "Bearer " + token,
+  },
+})
   .then((res) => res.json())
   .then((products) => {
     console.log(products, "fetching coffees!");

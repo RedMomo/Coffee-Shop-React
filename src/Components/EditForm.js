@@ -17,6 +17,10 @@ function EditForm({updateProducts}) {
     const [stock, setStock] = useState("");
     const token = localStorage.getItem('jwt')
 
+
+    const handleIDChange = (e) => {
+        setId(e.target.value);
+    };
     const handleTitleChange = (e) => {
       setTitle(e.target.value);
   };
@@ -53,7 +57,7 @@ function EditForm({updateProducts}) {
           method: "PATCH",
           headers: {
             "content-type": "application/json",
-            Authorization: "Bearer " + token,
+            "Authorization": "Bearer " + token,
           },
           body: JSON.stringify({
             id: id,
@@ -74,9 +78,10 @@ function EditForm({updateProducts}) {
 
 
     return (
-        <div>
+        <div className=''>
+            <h2>Edit Product</h2>
             <form onSubmit={handleSubmit}>
-             <input type="text" name="ID" placeholder="ID" id={`${products.id}`} />
+             <input onChange={handleIDChange} type="text" name="ID" placeholder="ID" id={`${products.id}`} />
              <input onChange={handleTitleChange} type="text" name="title" placeholder="Title" value={title} />
             <input onChange={handleFeaturedChange} type="text" name="featured" placeholder="Featured" value={featured} /> 
             <input onChange={handleStockChange} type="text" name="stock" placeholder="Stock" value={stock} /> 

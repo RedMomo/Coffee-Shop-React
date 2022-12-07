@@ -3,12 +3,17 @@ import { NavLink } from "react-router-dom";
 
 
 function AdminCards({product, products, setProducts}) {
+  const token = localStorage.getItem('jwt');
     
     function handleDeleteClick() {
       let updatedProducts = products.filter((item) => item.id !== product.id) 
       setProducts(updatedProducts)
       fetch(`http://localhost:3000/products/${product.id}`, {
         method: "DELETE",
+        headers: {
+          "content-type": "application/json",
+          "Authorization": "Bearer " + token,
+        },
       });
       console.log("delete!");
     }
