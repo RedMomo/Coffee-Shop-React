@@ -17,6 +17,17 @@ function CartContainer({carts, product}) {
   .then( current_cart => setCart(current_cart))
 }, cart);
 
+// useEffect(() => {
+//   fetch("http://localhost:3000/carts", {
+//     headers: {
+//       "content-type": "application/json",
+//       "Authorization": "Bearer " + token,
+//     },
+//   })
+//   .then(res => res.json())
+//   .then( current_cart => setCart(current_cart))
+// }, []);
+
 
 
   return (

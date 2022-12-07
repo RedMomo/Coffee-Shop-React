@@ -60,3 +60,4 @@ function FeaturedProductCard({products}) {
 }
 
 export default FeaturedProductCard;
+
