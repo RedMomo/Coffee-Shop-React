@@ -6,11 +6,11 @@ import Logout from './Logout'
 // import {useNavigate} from 'react-router-dom'
 // import { useState, useEffect } from 'react';
 
-function Profile({user}) {
+function Profile({user, setProducts}) {
     // const navigate = useNavigate()
     if (user.admin === true) {
         return(
-            <div> <AdminPage user={user}/>
+            <div> <AdminPage user={user} setProducts={setProducts}/>
             <Logout />
             </div> )
     } else if (user.admin === false) {

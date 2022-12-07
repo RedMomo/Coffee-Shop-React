@@ -18,10 +18,10 @@ import { Routes, Route } from "react-router-dom";
 import {useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 
-function App(products) {
+function App() {
   // const navigate = useNavigate()
   const [user, setUser] = useState({});
-  // const [products, setProducts] = useState([])
+  const [products, setProducts] = useState([])
   const jwt_token = localStorage.getItem("jwt")
   const token = localStorage.getItem('jwt');
 
@@ -39,6 +39,20 @@ function App(products) {
           setUser(user)})
     }, [])
 
+    useEffect(() => {
+      fetch("http://localhost:3000/products", {
+        headers: {
+          "content-type": "application/json",
+          "Authorization": "Bearer " + token,
+      },
+    })
+      .then((res) => res.json())
+      .then((products) => {
+        console.log(products, "fetching coffees!");
+        setProducts(products);
+      })
+    }, []);
+
 
   return (
     <div className="">
@@ -50,7 +64,7 @@ function App(products) {
             
               (
               <>
-                <Route exact path="/adminpage" element={<AdminPage/>} /> 
+                <Route exact path="/adminpage" element={<AdminPage setProducts={setProducts} products={products}/>} /> 
                 <Route exact path="/userpage" element={<UserPage />} /> 
                 <Route exact path="/cart" element={<Cart />} />
               </>
@@ -63,7 +77,7 @@ function App(products) {
         }
 
         <Route path="/login" element={<Login setUser={setUser}/>} />
-        <Route path="/shop" element={<AllProductsContainer></AllProductsContainer>}></Route>
+        <Route path="/shop" element={<AllProductsContainer setProducts={setProducts} products={products} />}></Route>
         <Route path="/" element={<Landing></Landing>}></Route>
         <Route path="/about" element={<About></About>}></Route>
 

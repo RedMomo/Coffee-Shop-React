@@ -5,14 +5,14 @@ import AdminCardsListing from './AdminCardsListing';
 function AdminCardsContainer({products, setProducts}) {
   
 
-  useEffect(() => {
-    fetch("http://localhost:3000/products")
-    .then((res) => res.json())
-    .then((products) => {
-      console.log(products, "fetching coffees!");
-      setProducts(products);
-    })
-  }, []);
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/products")
+  //   .then((res) => res.json())
+  //   .then((products) => {
+  //     console.log(products, "fetching coffees!");
+  //     setProducts(products);
+  //   })
+  // }, []);
 
   
 

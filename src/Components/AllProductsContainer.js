@@ -4,28 +4,14 @@ import AllProductsListing from './AllProductsListing';
 import Searchbar from './Searchbar';
 // import Filter from './Filter';
 
-function AllProductsContainer() {
-  const [products, setProducts] = useState([]);
+function AllProductsContainer( {products, setProducts }) {
+
   const [search, setSearch] = useState("")
   const token = localStorage.getItem('jwt');
 
   const newProducts = (product) => {
     setProducts([...products, product]);
   };
-
-  useEffect(() => {
-    fetch("http://localhost:3000/products", {
-      headers: {
-        "content-type": "application/json",
-        "Authorization": "Bearer " + token,
-    },
-  })
-    .then((res) => res.json())
-    .then((products) => {
-      console.log(products, "fetching coffees!");
-      setProducts(products);
-    })
-  }, []);
 
 
   const searchedProducts = products.filter((product) => {
