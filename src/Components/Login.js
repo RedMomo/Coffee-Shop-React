@@ -16,12 +16,13 @@ const handleSubmit = (e) => {
     username: username,
     password: password
   }
+  // console.log(user)
+
 
   fetch("http://localhost:3000/auth/login", {
       method: "POST",
       headers: {
-        "Content-type": "application/json",
-        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(user),
     })
@@ -29,7 +30,7 @@ const handleSubmit = (e) => {
       .then((data) => {
         console.log(data);
         localStorage.setItem("jwt", data.token);
-        console.log(user);
+        // console.log(user);
         setUser(data.user);
         navigate("/adminpage");
       })
@@ -41,10 +42,16 @@ const handleSubmit = (e) => {
       <h2 className='login-header'>Login</h2>
       <form onSubmit={handleSubmit} className='form'>
         <div className='input'>
-          <input type="text" name="username" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}/>
+          <input type="text" name="username" placeholder="Username" value={username} onChange={(e) => {
+            // console.log(e.target.value);
+            setUsername(e.target.value)
+          }}/>
         </div>
         <div className='input'>
-          <input type="password" name="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+          <input type="password" name="password" placeholder="Password" value={password} onChange={(e) => {
+            // console.log(e.target.value);
+            setPassword(e.target.value)
+            }}/>
         </div>
         <button className='card-button-primary'>Login</button>
         {/* <input type="submit" value="Submit" /> */}

@@ -25,19 +25,19 @@ function App() {
   const jwt_token = localStorage.getItem("jwt")
   const token = localStorage.getItem('jwt');
 
-    useEffect(() => {
-      fetch('/me',{
-        method: 'GET',
-        headers: {
-          Authorization: "Bearer " + jwt_token,
-          'Content-Type': 'application/json'
-        },
-      })
-        .then(res => res.json())
-        .then(user => {
-          console.log(user)
-          setUser(user)})
-    }, [])
+  useEffect(() => {
+    fetch('http://localhost:3000/me', {
+      method: 'GET',
+      headers: {
+        'Authorization': "Bearer " + jwt_token
+      }
+    })
+    .then(res => res.json())
+    .then(user => {
+      console.log('user:', user)
+      setUser(user)
+    })
+  }, [])
 
     useEffect(() => {
       fetch("http://localhost:3000/products", {
@@ -66,7 +66,7 @@ function App() {
               <>
                 <Route exact path="/adminpage" element={<AdminPage setProducts={setProducts} products={products}/>} /> 
                 <Route exact path="/userpage" element={<UserPage />} /> 
-                <Route exact path="/cart" element={<Cart />} />
+                <Route exact path="/cart" element={<Cart user={user}/>} />
               </>
               )
             : 

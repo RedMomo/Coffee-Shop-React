@@ -1,3 +1,4 @@
+import userEvent from "@testing-library/user-event";
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -22,28 +23,40 @@ function ProductCard({products}) {
     })
     .then(res => res.json())
     .then( cart => setCart(cart))
+
+    fetch('http://localhost:3000/me', {
+      method: 'GET',
+      headers: {
+        'Authorization': "Bearer " + token
+      }
+    })
+    .then(res => res.json())
+    .then(user => {
+      console.log(user.carts[0].id)
+      
+      fetch("http://localhost:3000/cart_items", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          "Authorization": "Bearer " + token,
+  
+        },
+        body: JSON.stringify({
+          cart_id: user.carts[0].id,
+          product_id: products.id,
+          quantity: quantity,
+        })
+      })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data, "added cart items!");
+        // setCart_Items([...cart_items, cart_item]);
+  });
+    })
+    
   }
     
-    useEffect(() => {
-    fetch("http://localhost:3000/cart_items", {
-           method: "POST",
-           headers: {
-             "content-type": "application/json",
-             "Authorization": "Bearer " + token,
-     
-           },
-           body: JSON.stringify({
-             cart_id: 1,
-             product_id: products.id,
-             quantity: quantity,
-           }),
-         })
-           .then((res) => res.json())
-           .then((data) => {
-             console.log(cart_items, "added cart items!");
-             // setCart_Items([...cart_items, cart_item]);
-           });
-          }, [cart]);
+    
 
   return (
     <li className="">
