@@ -22,7 +22,7 @@ function Cart({current_cart, cart, products, user}) {
                     items.map(item => {
                         return (
                             <div key={item.id}>
-                                <h3>{item.title}</h3>
+                                <p>{item.title}</p> <p>${item.price}</p>
                                 <img src={item.image_url}/>
                             </div>
                         )
