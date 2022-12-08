@@ -16,12 +16,12 @@ function Cart({current_cart, cart, products, user}) {
     // if (cart.last.products.first.exist) {
 
     return (
-        <div className="about-us">
+        <div >
             {
                 items?.length > 0 ? (
                     items.map(item => {
                         return (
-                            <div key={item.id}>
+                            <div key={item.id} className="featured-products-container">
                                 <p>{item.title}</p> <p>${item.price}</p>
                                 <img src={item.image_url}/>
                             </div>

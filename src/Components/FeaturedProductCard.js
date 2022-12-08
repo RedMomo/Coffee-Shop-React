@@ -54,7 +54,7 @@ function FeaturedProductCard({products}) {
       <details className="descriptions"> 
       <summary className="descriptions-label"> View Details </summary>{products.description}</details>
       
-      <button onClick={handleAddToCart} className="card-button-primary"> Add to Cart </button>
+      {/* <button onClick={handleAddToCart} className="card-button-primary"> Add to Cart </button> */}
     </li>
   );
 }
